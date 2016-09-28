@@ -1,9 +1,11 @@
 const React = require('react')
+const styles = require('./app.css')
 
 const AppView = React.createClass({
   render: function() {
+    console.log(styles);
     return (
-        <div>Hello, {this.props.name}</div>
+      <div className={styles.container}>Hello, {this.props.name}</div>
     )
   }
 })
