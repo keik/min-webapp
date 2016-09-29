@@ -1,3 +1,6 @@
 {
-  presets: ['react']
+  presets: ['react'],
+  plugins: [
+    ['css-modules-transform', {extractCss: './build/assets/style.css'}]
+  ]
 }
