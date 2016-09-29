@@ -1,5 +1,5 @@
 {
-  presets: ['react'],
+  presets: ['es2015', 'react'],
   plugins: [
     ['css-modules-transform', {extractCss: './build/assets/style.css'}]
   ]

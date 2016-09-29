@@ -1,12 +1,10 @@
-const React = require('react')
-const styles = require('./app.css')
+import React from 'react'
+import styles from './app.css'
 
-const AppView = React.createClass({
-  render: function() {
+export default class AppView extends React.Component {
+  render () {
     return (
       <div className={styles.container}>Hello, {this.props.name}</div>
     )
   }
-})
-
-module.exports = AppView
+}
