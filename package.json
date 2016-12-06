@@ -1,19 +1,25 @@
 {
-  "name": "example",
-  "private": true,
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "name": "min-webapp",
+  "version": "1.0.0",
+  "description": "Minimum boilerplate of isomorphic web application",
   "scripts": {
     "start": "./scripts/run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "browserify": {
-    "transform": [
-      "babelify",
-      "envify"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keik/min-webapp.git"
   },
+  "author": {
+    "name": "KATO Kei",
+    "email": "k4t0.kei@gmail.com",
+    "url": "keik.info"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keik/min-webapp/issues"
+  },
+  "homepage": "https://github.com/keik/min-webapp#readme",
   "dependencies": {
     "express": "^4.14.0",
     "react": "^0.14.6",

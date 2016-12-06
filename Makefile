@@ -22,6 +22,7 @@ bundle-watch:
 	mkdir -p bundle
 	NODE_ENV=development $(NPM)/watchify -vd \
 	  -e lib/client/main1.js -e lib/client/main2.js \
+	  -t babelify \
 	  -p [ factor-bundle -o bundle/bundle1.js -o bundle/bundle2.js ] \
 	  -p browserify-hmr \
 	  -o bundle/common.js
