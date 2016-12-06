@@ -20,7 +20,11 @@ watch:
 bundle-watch:
 	@echo $(TAG)$@$(END)
 	mkdir -p bundle
-	NODE_ENV=development $(NPM)/watchify -vd -p browserify-hmr lib/client/main.js -o bundle/bundle.js
+	NODE_ENV=development $(NPM)/watchify -vd \
+	  -e lib/client/main1.js -e lib/client/main2.js \
+	  -p [ factor-bundle -o bundle/bundle1.js -o bundle/bundle2.js ] \
+	  -p browserify-hmr \
+	  -o bundle/common.js
 
 lint:
 	@echo $(TAG)$@$(END)
