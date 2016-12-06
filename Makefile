@@ -10,7 +10,7 @@ build: clean lint test bundle
 
 start:
 	@echo $(TAG)$@$(END)
-	NODE_ENV=production http-server
+	NODE_ENV=production node lib/server
 
 watch:
 	@echo $(TAG)$@$(END)
@@ -20,7 +20,11 @@ watch:
 bundle-watch:
 	@echo $(TAG)$@$(END)
 	mkdir -p bundle
-	NODE_ENV=development $(NPM)/watchify -vd -p browserify-hmr index.js -o bundle/bundle.js
+	NODE_ENV=development $(NPM)/watchify -vd -p browserify-hmr lib/client/main.js -o bundle/bundle.js
+
+lint:
+	@echo $(TAG)$@$(END)
+	$(NPM)/eslint 'lib/**/*.js'
 
 clean:
 	@echo $(TAG)$@$(END)
