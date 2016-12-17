@@ -1,15 +1,24 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
   },
   "env": {
     "browser": true,
     "node": true
   },
+  "parser": "babel-eslint",
   "rules": {
+    "no-undef": ["error"],
+    "no-unused-vars": ["error"],
     "semi": ["warn", "never"],
+    "quotes": ["error", "single"],
     "strict": ["error", "never"],
-    "quotes": ["error", "single"]
-  }
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/react-in-jsx-scope": "error"
+  },
+  "plugins": [
+    "react"
+  ]
 }

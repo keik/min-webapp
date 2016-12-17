@@ -16,6 +16,11 @@ module.exports = {
     /^[a-z\-0-9]+$/,
   ],
 
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader' }
+    ]
+  },
 
   node: {
     __filename: true,
@@ -25,9 +30,9 @@ module.exports = {
   output: {
     chunkFilename: '[id].[hash:5]-[chunkhash:7].js',
     devtoolModuleFilenameTemplate: '[absolute-resource-path]',
-    filename: 'server.js',
+    filename: 'dev-server.js',
     libraryTarget: 'commonjs2',
-    path: './build',
+    path: './tmp',
   },
 
   plugins: [
