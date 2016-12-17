@@ -4,9 +4,15 @@ END=" \#\#\# \033[0m\n"
 NPM=$(shell npm bin)
 JSC=$(NPM)/webpack
 
+JSCOV=$(NPM)/nyc
+JSCOVFLAGS=-i babel-register --all --include "lib/**" --exclude "lib/{**/*.test.js,server/index.js}"
+JST=$(NPM)/tape
+JSTW=$(NPM)/tape-watch
+JSTFLAGS=-r babel-register
+
 .PHONY: build start watch clean
 
-build: clean lint
+build: clean lint test
 	@echo $(TAG)$@$(END)
 
 start:
@@ -16,6 +22,15 @@ start:
 watch: clean
 	@echo $(TAG)$@$(END)
 	$(JSC) --watch
+
+test-watch:
+	$(JSTW) $(JSTFLAGS) "lib/**/*.test.js" -v
+
+cov:
+	$(JSCOV) $(JSCOVFLAGS) $(JST) "lib/**/*.test.js"
+
+test:
+	$(JST) $(JSTFLAGS) "lib/**/*.test.js"
 
 lint:
 	@echo $(TAG)$@$(END)
